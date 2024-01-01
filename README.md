@@ -1,1 +1,4 @@
-# simple_state_machine_with_cmake
+# Step to build the program
+```console
+$./build.sh
+```
