@@ -1,4 +1,5 @@
-# Step to build the program
+# Step to build and execute the program
 ```console
 $./build.sh
+$./stateMachineTrafficLight
 ```
