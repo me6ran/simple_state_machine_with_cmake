@@ -10,6 +10,8 @@ add_library(common_lib STATIC
             common/src/math_operations.c           
 )
 
+add_subdirectory(${PROJECT_SOURCE_DIR}/buffer_interface)
+
 add_executable(${TARGET_NAME} state_machine_fpointer.c)
 
 target_link_libraries(${TARGET_NAME} common_lib)
