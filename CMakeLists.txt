@@ -2,9 +2,9 @@ cmake_minimum_required(VERSION "3.19.2")
 
 include(${CMAKE_SOURCE_DIR}/common_macros.cmake)
 
-project(stateMachineTrafficLight VERSION 1.0 LANGUAGES C)
+project(state-trafficlight VERSION 1.0 LANGUAGES C)
 
-SET(TARGET_NAME stateMachineTrafficLight)
+SET(TARGET_NAME state-trafficlight)
 message(STATUS "Value of CMAKE_CURRENT_BINARY_DIR: ${CMAKE_CURRENT_BINARY_DIR}")
 message(STATUS "Value of CMAKE_CURRENT_SOURCE_DIR: ${CMAKE_CURRENT_SOURCE_DIR}")
 
@@ -21,12 +21,3 @@ add_subdirectory(${PROJECT_SOURCE_DIR}/buffer_interface)
 add_executable(${TARGET_NAME} state_machine_fpointer.c)
 
 target_link_libraries(${TARGET_NAME} common_lib)
-
-copy_target_2_src_dir("${TARGET_NAME}" "${PROJECT_SOURCE_DIR}/${TARGET_NAME}")
-
-# add_custom_command(
-#     TARGET ${TARGET_NAME} POST_BUILD
-#     COMMAND ${CMAKE_COMMAND} -E copy
-#     $<TARGET_FILE:x${TARGET_NAME}>
-#     ${PROJECT_SOURCE_DIR}
-# )

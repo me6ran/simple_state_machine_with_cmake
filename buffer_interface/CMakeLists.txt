@@ -8,4 +8,4 @@ message(STATUS "bufferInterface- Value of CMAKE_CURRENT_SOURCE_DIR: ${CMAKE_CURR
 
 add_executable(${TARGET_NAME} buffer_interface.c)
 
-copy_target_2_src_dir("${TARGET_NAME}" "${PROJECT_SOURCE_DIR}/${TARGET_NAME}")
+# copy_target_2_src_dir("${TARGET_NAME}" "${PROJECT_SOURCE_DIR}/${TARGET_NAME}")
