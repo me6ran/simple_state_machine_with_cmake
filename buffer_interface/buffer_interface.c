@@ -2,21 +2,35 @@
 
 #define BUFFER_SIZE 50
 
-unsigned int buffer1[BUFFER_SIZE] = {0};
-unsigned int buffer2[BUFFER_SIZE] = {0};
+u_int32_t buffer1[BUFFER_SIZE] = {0};
+u_int32_t buffer2[BUFFER_SIZE] = {0};
 
 enum buff_num {
     BUFFER1,
     BUFFER2
 };
 
+typedef enum {
+    false,
+    true
+} bool;
+
+bool check_unsigned_limit(u_int8_t value, u_int32_t limit)
+{
+    if(value >= limit || value < 0)
+    {
+        return false;
+    }
+    return true;
+
+}
 typedef struct {
-    void (* pbuffer_init) (unsigned int *);
-    void (* pbuffer_write) (short int, unsigned int);
-    unsigned int (* pbuffer_read) (short int);
+    void (* pbuffer_init) (u_int32_t *);
+    void (* pbuffer_write) (u_int8_t, u_int32_t);
+    u_int32_t (* pbuffer_read) (u_int8_t);
 }buffer_intf_t;
 
-void buffer_init(unsigned int *buffer)
+void buffer_init(u_int32_t *buffer)
 {
     for(int x =0; x < BUFFER_SIZE; x++)
     {
@@ -24,31 +38,34 @@ void buffer_init(unsigned int *buffer)
     }
 }
 
-void buffer1_write(short int index, unsigned int value)
+void buffer1_write(u_int8_t index, u_int32_t value)
 {
-    if(index >= BUFFER_SIZE)
-    return;
+    if(!check_unsigned_limit(index, BUFFER_SIZE))
+    {
+        printf("invalid index\n");
+        return;
+    }
     buffer1[index] = value;
 }
 
-unsigned int buffer1_read(short int index)
+u_int32_t buffer1_read(u_int8_t index)
 {
-    if(index >= BUFFER_SIZE)
+    if(!check_unsigned_limit(index, BUFFER_SIZE))
     return 0;
     return buffer1[index];
 }
 
 
-void buffer2_write(short int index, unsigned int value)
+void buffer2_write(u_int8_t index, u_int32_t value)
 {
-    if(index >= BUFFER_SIZE)
+    if(!check_unsigned_limit(index, BUFFER_SIZE))
     return;
     buffer2[index] = value;
 }
 
-unsigned int buffer2_read(short int index)
+u_int32_t buffer2_read(u_int8_t index)
 {
-    if(index >= BUFFER_SIZE)
+    if(!check_unsigned_limit(index, BUFFER_SIZE))
     return 0;
     return buffer2[index];
 }
