@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdint.h>
+#include <stdbool.h>
 
 #define BUFFER_SIZE 50
 
@@ -11,19 +12,10 @@ enum buff_num {
     BUFFER2
 };
 
-typedef enum {
-    false,
-    true
-} bool;
 
 bool check_unsigned_limit(uint8_t value, uint32_t limit)
 {
-    if(value >= limit || value < 0)
-    {
-        return false;
-    }
-    return true;
-
+    return (value >= 0 && value < limit) ? true : false;
 }
 typedef struct {
     void (* pbuffer_init) (uint32_t *);

@@ -1,10 +1,7 @@
 
-project(bufferInterface VERSION 1.0 LANGUAGES C)
+project(buffer_interface VERSION 1.0 LANGUAGES C)
 
-SET(TARGET_NAME bufferInterface)
-
-message(STATUS "bufferInterface- Value of CMAKE_CURRENT_BINARY_DIR: ${CMAKE_CURRENT_BINARY_DIR}")
-message(STATUS "bufferInterface- Value of CMAKE_CURRENT_SOURCE_DIR: ${CMAKE_CURRENT_SOURCE_DIR}")
+SET(TARGET_NAME buffer-interface)
 
 add_executable(${TARGET_NAME} buffer_interface.c)
 

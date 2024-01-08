@@ -1,3 +1,4 @@
 build/
 stateMachineTrafficLight
 *.log
+.vscode/
