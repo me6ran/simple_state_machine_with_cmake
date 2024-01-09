@@ -1,6 +1,6 @@
+#!/bin/bash
+
 mkdir -p build/
 cd build/
-cmake ../
-cmake --build .
-
-env > env_vars.log
+cmake -DCMAKE_BUILD_TYPE=Debug ../
+cmake --build . -- VERBOSE=2

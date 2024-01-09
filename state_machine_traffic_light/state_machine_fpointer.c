@@ -5,9 +5,6 @@
 
 typedef enum {false, true} bool;
 
-
-
-
 int (* const op_pointer[]) (int, int) = {add, sub};
 
 int main(void)
