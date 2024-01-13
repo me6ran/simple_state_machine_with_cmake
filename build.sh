@@ -1,6 +1,6 @@
 #!/bin/bash
-
-mkdir -p build/
-cd build/
-cmake -DCMAKE_BUILD_TYPE=Debug ../
-cmake --build . -- VERBOSE=2
+BUILD_DIR=build
+mkdir -p $BUILD_DIR
+# cd build/
+cmake -DCMAKE_BUILD_TYPE=Debug -B$BUILD_DIR -H.
+cmake --build $BUILD_DIR -- VERBOSE=2
